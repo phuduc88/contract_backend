@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dqs_test_20170804Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerName" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="TypeSendInvoice" Type="int" />
+          <Property Name="Mobile" Type="nvarchar(max)" />
+          <Property Name="Fax" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Delegate" Type="nvarchar(max)" />
+          <Property Name="PersonContact" Type="nvarchar(max)" />
+          <Property Name="BankAccount" Type="nvarchar(max)" />
+          <Property Name="AccountHolder" Type="nvarchar(max)" />
+          <Property Name="BankName" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="CustomerType" Type="int" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="Updated" Type="datetime" />
+          <Property Name="UpdateBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="CustomerId" Type="int" />
+          <Property Name="No" Type="nvarchar" MaxLength="50" />
+          <Property Name="DatePayment" Type="date" />
+          <Property Name="TypePayment" Type="int" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="PriceId" Type="int" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="Month" Type="int" />
+          <Property Name="BonusMonth" Type="int" />
+          <Property Name="DateApproved" Type="date" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Total" Type="decimal" Precision="18" Scale="5" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="DocumentSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="DocumentType" Type="int" />
+          <Property Name="Status" Type="int" />
+          <Property Name="DateCreate" Type="datetime" />
+          <Property Name="UserCreate" Type="int" />
+          <Property Name="SenderName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="CurrentStep" Type="int" />
+          <Property Name="MyselfSign" Type="bit" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentName" Type="nvarchar(max)" />
+          <Property Name="DocType" Type="int" />
+          <Property Name="Orders" Type="int" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="DateCreate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EmailActive">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="EmailTo" Type="nvarchar(max)" />
+          <Property Name="StatusSend" Type="int" />
+          <Property Name="ContentEmail" Type="ntext" />
+          <Property Name="CreatedDate" Type="date" />
+          <Property Name="SendtedDate" Type="date" />
+          <Property Name="TypeEmail" Type="int" />
+          <Property Name="AccountId" Type="int" />
+        </EntityType>
+        <EntityType Name="EmailActiveFileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailActiveId" Type="int" />
+          <Property Name="FullPathFileAttach" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="EmailServer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="AutoSendEmail" Type="bit" />
+          <Property Name="MethodSendSSL" Type="bit" />
+          <Property Name="SMTPServer" Type="nvarchar" MaxLength="250" />
+          <Property Name="Port" Type="int" />
+          <Property Name="EmailServer" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="UsingHSM" Type="bit" />
+          <Property Name="EmployeeId" Type="int" />
+          <Property Name="CreateAccount" Type="bit" />
+          <Property Name="DateCreated" Type="datetime" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="EmployeeSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentSingId" Type="int" />
+          <Property Name="ThreadedSignDocumentId" Type="int" />
+          <Property Name="OrderSign" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeeSignDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeSignId" Type="int" />
+          <Property Name="FileSignId" Type="int" />
+          <Property Name="SignType" Type="int" />
+          <Property Name="Page" Type="int" />
+          <Property Name="CoordinateX" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CoordinateY" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Scale" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Width" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Height" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="OrderLink" Type="int" />
+        </EntityType>
+        <EntityType Name="FileSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="DocumentSignId" Type="int" />
+          <Property Name="UserUpload" Type="int" />
+          <Property Name="FileSourceType" Type="nvarchar(max)" />
+          <Property Name="FileConvertType" Type="nvarchar(max)" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="FileSize" Type="int" />
+          <Property Name="FileConvert" Type="nvarchar(max)" />
+          <Property Name="NumberPage" Type="int" />
+          <Property Name="Orders" Type="int" />
+          <Property Name="DateCreate" Type="datetime" />
+          <Property Name="Status" Type="int" />
+          <Property Name="FileNameSave" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="UserSID" />
+          </Key>
+          <Property Name="UserSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserRoleSID" Type="int" />
+          <Property Name="CompanySID" Type="int" />
+          <Property Name="Language" Type="nvarchar" MaxLength="2" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="LastAccessedTime" Type="datetime" />
+          <Property Name="LastChangedPasswordTime" Type="datetime" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountDefault" Type="bit" />
+          <Property Name="EmployeeSignId" Type="int" />
+        </EntityType>
+        <EntityType Name="MyCompany">
+          <Key>
+            <PropertyRef Name="CompanySID" />
+          </Key>
+          <Property Name="CompanySID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyType" Type="nvarchar(max)" />
+          <Property Name="IsurranceCode" Type="nvarchar(max)" />
+          <Property Name="CompanyName" Type="nvarchar(max)" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Issued" Type="nvarchar(max)" />
+          <Property Name="Careers" Type="nvarchar(max)" />
+          <Property Name="License" Type="nvarchar(max)" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="AddressRegister" Type="nvarchar(max)" />
+          <Property Name="Tel1" Type="nvarchar(max)" />
+          <Property Name="Fax" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="PersonContact" Type="nvarchar(max)" />
+          <Property Name="Delegate" Type="nvarchar(max)" />
+          <Property Name="BankAccount" Type="nvarchar(max)" />
+          <Property Name="AccountHolder" Type="nvarchar(max)" />
+          <Property Name="BankName" Type="nvarchar(max)" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="CityCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Deleted" Type="bit" />
+          <Property Name="LogoFileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Level_Customer" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Position" Type="nvarchar" MaxLength="50" />
+          <Property Name="WebSite" Type="nvarchar" MaxLength="250" />
+          <Property Name="Level_Agencies" Type="int" />
+          <Property Name="EmailOfContract" Type="nvarchar(max)" />
+          <Property Name="AutoSendEmail" Type="bit" />
+          <Property Name="PrivateKey" Type="nvarchar(max)" />
+          <Property Name="VendorToken" Type="nvarchar(max)" />
+          <Property Name="FromDate" Type="date" />
+          <Property Name="Expired" Type="date" />
+        </EntityType>
+        <EntityType Name="RoleOfUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserSID" Type="int" />
+          <Property Name="UserRoleDetailId" Type="int" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SignOfUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="IsDraw" Type="bit" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="UseDefault" Type="bit" />
+          <Property Name="ImageName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreate" Type="datetime" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilePathToken" Type="nvarchar(max)" />
+          <Property Name="PassWord" Type="nvarchar(max)" />
+          <Property Name="IVANCode" Type="nvarchar" MaxLength="250" />
+          <Property Name="IVANName" Type="nvarchar" MaxLength="250" />
+          <Property Name="IVANPass" Type="nvarchar" MaxLength="250" />
+          <Property Name="ModeSign" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ThreadedSignDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="DocumentTypeId" Type="int" Nullable="false" />
+          <Property Name="GroupType" Type="int" />
+          <Property Name="ReceptionEmail" Type="bit" />
+          <Property Name="ReceptionFileCopy" Type="bit" />
+          <Property Name="GroupName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="TaxCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Orders" Type="int" />
+          <Property Name="DateCreate" Type="datetime" />
+          <Property Name="UserCreate" Type="int" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adrress" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleSID" />
+          </Key>
+          <Property Name="UserRoleSID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Levels" Type="nvarchar" MaxLength="15" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="64" />
+          <Property Name="DefaultPage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreatedDate" Type="datetime2" Precision="3" />
+          <Property Name="UpdatedDate" Type="datetime2" Precision="3" />
+        </EntityType>
+        <EntityType Name="UserRoleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserRoleSID" Type="int" />
+          <Property Name="FunctionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Action" Type="nvarchar" MaxLength="50" />
+          <Property Name="DetailFunction" Type="nvarchar" MaxLength="250" />
+          <Property Name="Orders" Type="int" />
+        </EntityType>
+        <Association Name="FK_Contract_MyCompany">
+          <End Role="MyCompany" Type="Self.MyCompany" Multiplicity="0..1" />
+          <End Role="Contract" Type="Self.Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailActiveFileAttach_EmailActive">
+          <End Role="EmailActive" Type="Self.EmailActive" Multiplicity="0..1" />
+          <End Role="EmailActiveFileAttach" Type="Self.EmailActiveFileAttach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailActive">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailActiveFileAttach">
+              <PropertyRef Name="EmailActiveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employeers_MyCompany">
+          <End Role="MyCompany" Type="Self.MyCompany" Multiplicity="0..1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginUser_MyCompany">
+          <End Role="MyCompany" Type="Self.MyCompany" Multiplicity="0..1" />
+          <End Role="LoginUser" Type="Self.LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="CompanySID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginUser_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="LoginUser" Type="Self.LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleSID" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="UserRoleSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MyCompany_City">
+          <End Role="City" Type="Self.City" Multiplicity="0..1" />
+          <End Role="MyCompany" Type="Self.MyCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MyCompany">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOfUser_LoginUser">
+          <End Role="LoginUser" Type="Self.LoginUser" Multiplicity="0..1" />
+          <End Role="RoleOfUser" Type="Self.RoleOfUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginUser">
+              <PropertyRef Name="UserSID" />
+            </Principal>
+            <Dependent Role="RoleOfUser">
+              <PropertyRef Name="UserSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRoleDetail_UserRole">
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+          <End Role="UserRoleDetail" Type="Self.UserRoleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleSID" />
+            </Principal>
+            <Dependent Role="UserRoleDetail">
+              <PropertyRef Name="UserRoleSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Dongbo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="dqs_test_20170804ModelStoreContainer">
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contract" EntityType="Self.Contract" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentSign" EntityType="Self.DocumentSign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentType" EntityType="Self.DocumentType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailActive" EntityType="Self.EmailActive" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailActiveFileAttach" EntityType="Self.EmailActiveFileAttach" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailServer" EntityType="Self.EmailServer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeSign" EntityType="Self.EmployeeSign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeSignDetail" EntityType="Self.EmployeeSignDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileSign" EntityType="Self.FileSign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginUser" EntityType="Self.LoginUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyCompany" EntityType="Self.MyCompany" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleOfUser" EntityType="Self.RoleOfUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SignOfUser" EntityType="Self.SignOfUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemConfig" EntityType="Self.SystemConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThreadedSignDocument" EntityType="Self.ThreadedSignDocument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRoleDetail" EntityType="Self.UserRoleDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Contract_MyCompany" Association="Self.FK_Contract_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompany" />
+            <End Role="Contract" EntitySet="Contract" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailActiveFileAttach_EmailActive" Association="Self.FK_EmailActiveFileAttach_EmailActive">
+            <End Role="EmailActive" EntitySet="EmailActive" />
+            <End Role="EmailActiveFileAttach" EntitySet="EmailActiveFileAttach" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employeers_MyCompany" Association="Self.FK_Employeers_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompany" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginUser_MyCompany" Association="Self.FK_LoginUser_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompany" />
+            <End Role="LoginUser" EntitySet="LoginUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginUser_UserRole" Association="Self.FK_LoginUser_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="LoginUser" EntitySet="LoginUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MyCompany_City" Association="Self.FK_MyCompany_City">
+            <End Role="City" EntitySet="City" />
+            <End Role="MyCompany" EntitySet="MyCompany" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOfUser_LoginUser" Association="Self.FK_RoleOfUser_LoginUser">
+            <End Role="LoginUser" EntitySet="LoginUser" />
+            <End Role="RoleOfUser" EntitySet="RoleOfUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoleDetail_UserRole" Association="Self.FK_UserRoleDetail_UserRole">
+            <End Role="UserRole" EntitySet="UserRole" />
+            <End Role="UserRoleDetail" EntitySet="UserRoleDetail" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dqs_test_20170804Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataClassesDataContext" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="Dongbo" />
+          <FunctionImport Name="Dongbo_mauhoadon" />
+          <EntitySet Name="Cities" EntityType="dqs_test_20170804Model.City" />
+          <EntitySet Name="Clients" EntityType="dqs_test_20170804Model.Client" />
+          <EntitySet Name="Contracts" EntityType="dqs_test_20170804Model.Contract" />
+          <EntitySet Name="Departments" EntityType="dqs_test_20170804Model.Department" />
+          <EntitySet Name="DocumentSigns" EntityType="dqs_test_20170804Model.DocumentSign" />
+          <EntitySet Name="DocumentTypes" EntityType="dqs_test_20170804Model.DocumentType" />
+          <EntitySet Name="EmailActives" EntityType="dqs_test_20170804Model.EmailActive" />
+          <EntitySet Name="EmailActiveFileAttaches" EntityType="dqs_test_20170804Model.EmailActiveFileAttach" />
+          <EntitySet Name="EmailServers" EntityType="dqs_test_20170804Model.EmailServer" />
+          <EntitySet Name="Employees" EntityType="dqs_test_20170804Model.Employee" />
+          <EntitySet Name="EmployeeSigns" EntityType="dqs_test_20170804Model.EmployeeSign" />
+          <EntitySet Name="EmployeeSignDetails" EntityType="dqs_test_20170804Model.EmployeeSignDetail" />
+          <EntitySet Name="FileSigns" EntityType="dqs_test_20170804Model.FileSign" />
+          <EntitySet Name="LoginUsers" EntityType="dqs_test_20170804Model.LoginUser" />
+          <EntitySet Name="MyCompanies" EntityType="dqs_test_20170804Model.MyCompany" />
+          <EntitySet Name="RoleOfUsers" EntityType="dqs_test_20170804Model.RoleOfUser" />
+          <EntitySet Name="SignOfUsers" EntityType="dqs_test_20170804Model.SignOfUser" />
+          <EntitySet Name="ThreadedSignDocuments" EntityType="dqs_test_20170804Model.ThreadedSignDocument" />
+          <EntitySet Name="UserRoles" EntityType="dqs_test_20170804Model.UserRole" />
+          <EntitySet Name="UserRoleDetails" EntityType="dqs_test_20170804Model.UserRoleDetail" />
+          <AssociationSet Name="FK_MyCompany_City" Association="dqs_test_20170804Model.FK_MyCompany_City">
+            <End Role="City" EntitySet="Cities" />
+            <End Role="MyCompany" EntitySet="MyCompanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contract_MyCompany" Association="dqs_test_20170804Model.FK_Contract_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompanies" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmailActiveFileAttach_EmailActive" Association="dqs_test_20170804Model.FK_EmailActiveFileAttach_EmailActive">
+            <End Role="EmailActive" EntitySet="EmailActives" />
+            <End Role="EmailActiveFileAttach" EntitySet="EmailActiveFileAttaches" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employeers_MyCompany" Association="dqs_test_20170804Model.FK_Employeers_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompanies" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginUser_MyCompany" Association="dqs_test_20170804Model.FK_LoginUser_MyCompany">
+            <End Role="MyCompany" EntitySet="MyCompanies" />
+            <End Role="LoginUser" EntitySet="LoginUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginUser_UserRole" Association="dqs_test_20170804Model.FK_LoginUser_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="LoginUser" EntitySet="LoginUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RoleOfUser_LoginUser" Association="dqs_test_20170804Model.FK_RoleOfUser_LoginUser">
+            <End Role="LoginUser" EntitySet="LoginUsers" />
+            <End Role="RoleOfUser" EntitySet="RoleOfUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRoleDetail_UserRole" Association="dqs_test_20170804Model.FK_UserRoleDetail_UserRole">
+            <End Role="UserRole" EntitySet="UserRoles" />
+            <End Role="UserRoleDetail" EntitySet="UserRoleDetails" />
+          </AssociationSet>
+          <EntitySet Name="SystemConfigs" EntityType="dqs_test_20170804Model.SystemConfig" />
+          </EntityContainer>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShortName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleleted" Type="Boolean" />
+          <NavigationProperty Name="MyCompanies" Relationship="dqs_test_20170804Model.FK_MyCompany_City" FromRole="City" ToRole="MyCompany" />
+        </EntityType>
+        <EntityType Name="Client">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CustomerID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TypeSendInvoice" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delegate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountHolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerType" Type="Int32" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="Updated" Type="DateTime" Precision="3" />
+          <Property Name="UpdateBy" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DatePayment" Type="DateTime" Precision="0" />
+          <Property Name="TypePayment" Type="Int32" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="PriceId" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="Month" Type="Int32" />
+          <Property Name="BonusMonth" Type="Int32" />
+          <Property Name="DateApproved" Type="DateTime" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Total" Type="Decimal" Precision="18" Scale="5" />
+          <NavigationProperty Name="MyCompany" Relationship="dqs_test_20170804Model.FK_Contract_MyCompany" FromRole="Contract" ToRole="MyCompany" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DocumentSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="DocumentType" Type="Int32" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+          <Property Name="UserCreate" Type="Int32" />
+          <Property Name="SenderName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="CurrentStep" Type="Int32" />
+          <Property Name="MyselfSign" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DocumentType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DocType" Type="Int32" />
+          <Property Name="Orders" Type="Int32" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="EmailActive">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmailTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StatusSend" Type="Int32" />
+          <Property Name="ContentEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+          <Property Name="SendtedDate" Type="DateTime" Precision="0" />
+          <Property Name="TypeEmail" Type="Int32" />
+          <Property Name="AccountId" Type="Int32" />
+          <NavigationProperty Name="EmailActiveFileAttaches" Relationship="dqs_test_20170804Model.FK_EmailActiveFileAttach_EmailActive" FromRole="EmailActive" ToRole="EmailActiveFileAttach" />
+        </EntityType>
+        <EntityType Name="EmailActiveFileAttach">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailActiveId" Type="Int32" />
+          <Property Name="FullPathFileAttach" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EmailActive" Relationship="dqs_test_20170804Model.FK_EmailActiveFileAttach_EmailActive" FromRole="EmailActiveFileAttach" ToRole="EmailActive" />
+        </EntityType>
+        <EntityType Name="EmailServer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="AutoSendEmail" Type="Boolean" />
+          <Property Name="MethodSendSSL" Type="Boolean" />
+          <Property Name="SMTPServer" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Port" Type="Int32" />
+          <Property Name="EmailServer1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UsingHSM" Type="Boolean" />
+          <Property Name="EmployeeId" Type="Int32" />
+          <Property Name="CreateAccount" Type="Boolean" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="Boolean" />
+          <NavigationProperty Name="MyCompany" Relationship="dqs_test_20170804Model.FK_Employeers_MyCompany" FromRole="Employee" ToRole="MyCompany" />
+        </EntityType>
+        <EntityType Name="EmployeeSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentSingId" Type="Int32" />
+          <Property Name="ThreadedSignDocumentId" Type="Int32" />
+          <Property Name="OrderSign" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EmployeeSignDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeSignId" Type="Int32" />
+          <Property Name="FileSignId" Type="Int32" />
+          <Property Name="SignType" Type="Int32" />
+          <Property Name="Page" Type="Int32" />
+          <Property Name="CoordinateX" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CoordinateY" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Scale" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Width" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Height" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="OrderLink" Type="Int32" />
+        </EntityType>
+        <EntityType Name="FileSign">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="DocumentSignId" Type="Int32" />
+          <Property Name="UserUpload" Type="Int32" />
+          <Property Name="FileSourceType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileConvertType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileSize" Type="Int32" />
+          <Property Name="FileConvert" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NumberPage" Type="Int32" />
+          <Property Name="Orders" Type="Int32" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="FileNameSave" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoginUser">
+          <Key>
+            <PropertyRef Name="UserSID" />
+          </Key>
+          <Property Name="UserSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserRoleSID" Type="Int32" />
+          <Property Name="CompanySID" Type="Int32" />
+          <Property Name="Language" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="LastAccessedTime" Type="DateTime" Precision="3" />
+          <Property Name="LastChangedPasswordTime" Type="DateTime" Precision="3" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountDefault" Type="Boolean" />
+          <Property Name="EmployeeSignId" Type="Int32" />
+          <NavigationProperty Name="MyCompany" Relationship="dqs_test_20170804Model.FK_LoginUser_MyCompany" FromRole="LoginUser" ToRole="MyCompany" />
+          <NavigationProperty Name="UserRole" Relationship="dqs_test_20170804Model.FK_LoginUser_UserRole" FromRole="LoginUser" ToRole="UserRole" />
+          <NavigationProperty Name="RoleOfUsers" Relationship="dqs_test_20170804Model.FK_RoleOfUser_LoginUser" FromRole="LoginUser" ToRole="RoleOfUser" />
+        </EntityType>
+        <EntityType Name="MyCompany">
+          <Key>
+            <PropertyRef Name="CompanySID" />
+          </Key>
+          <Property Name="CompanySID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsurranceCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Issued" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Careers" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="License" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AddressRegister" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tel1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PersonContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Delegate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankAccount" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AccountHolder" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="CityCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted" Type="Boolean" />
+          <Property Name="LogoFileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Level_Customer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WebSite" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Level_Agencies" Type="Int32" />
+          <Property Name="EmailOfContract" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AutoSendEmail" Type="Boolean" />
+          <Property Name="PrivateKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VendorToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="Expired" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="City" Relationship="dqs_test_20170804Model.FK_MyCompany_City" FromRole="MyCompany" ToRole="City" />
+          <NavigationProperty Name="Contracts" Relationship="dqs_test_20170804Model.FK_Contract_MyCompany" FromRole="MyCompany" ToRole="Contract" />
+          <NavigationProperty Name="Employees" Relationship="dqs_test_20170804Model.FK_Employeers_MyCompany" FromRole="MyCompany" ToRole="Employee" />
+          <NavigationProperty Name="LoginUsers" Relationship="dqs_test_20170804Model.FK_LoginUser_MyCompany" FromRole="MyCompany" ToRole="LoginUser" />
+        </EntityType>
+        <EntityType Name="RoleOfUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserSID" Type="Int32" />
+          <Property Name="UserRoleDetailId" Type="Int32" />
+          <Property Name="FunctionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LoginUser" Relationship="dqs_test_20170804Model.FK_RoleOfUser_LoginUser" FromRole="RoleOfUser" ToRole="LoginUser" />
+        </EntityType>
+        <EntityType Name="SignOfUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="IsDraw" Type="Boolean" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="UseDefault" Type="Boolean" />
+          <Property Name="ImageName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FileName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+          <Property Name="Extension" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ThreadedSignDocument">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="DocumentTypeId" Type="Int32" Nullable="false" />
+          <Property Name="GroupType" Type="Int32" />
+          <Property Name="ReceptionEmail" Type="Boolean" />
+          <Property Name="ReceptionFileCopy" Type="Boolean" />
+          <Property Name="GroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TaxCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Orders" Type="Int32" />
+          <Property Name="DateCreate" Type="DateTime" Precision="3" />
+          <Property Name="UserCreate" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adrress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserRoleSID" />
+          </Key>
+          <Property Name="UserRoleSID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Levels" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RoleName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="DefaultPage" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LoginUsers" Relationship="dqs_test_20170804Model.FK_LoginUser_UserRole" FromRole="UserRole" ToRole="LoginUser" />
+          <NavigationProperty Name="UserRoleDetails" Relationship="dqs_test_20170804Model.FK_UserRoleDetail_UserRole" FromRole="UserRole" ToRole="UserRoleDetail" />
+        </EntityType>
+        <EntityType Name="UserRoleDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserRoleSID" Type="Int32" />
+          <Property Name="FunctionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DetailFunction" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Orders" Type="Int32" />
+          <NavigationProperty Name="UserRole" Relationship="dqs_test_20170804Model.FK_UserRoleDetail_UserRole" FromRole="UserRoleDetail" ToRole="UserRole" />
+        </EntityType>
+        <Association Name="FK_MyCompany_City">
+          <End Type="dqs_test_20170804Model.City" Role="City" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.MyCompany" Role="MyCompany" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MyCompany">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contract_MyCompany">
+          <End Type="dqs_test_20170804Model.MyCompany" Role="MyCompany" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmailActiveFileAttach_EmailActive">
+          <End Type="dqs_test_20170804Model.EmailActive" Role="EmailActive" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.EmailActiveFileAttach" Role="EmailActiveFileAttach" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailActive">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EmailActiveFileAttach">
+              <PropertyRef Name="EmailActiveId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employeers_MyCompany">
+          <End Type="dqs_test_20170804Model.MyCompany" Role="MyCompany" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="CompanyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginUser_MyCompany">
+          <End Type="dqs_test_20170804Model.MyCompany" Role="MyCompany" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.LoginUser" Role="LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MyCompany">
+              <PropertyRef Name="CompanySID" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="CompanySID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginUser_UserRole">
+          <End Type="dqs_test_20170804Model.UserRole" Role="UserRole" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.LoginUser" Role="LoginUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleSID" />
+            </Principal>
+            <Dependent Role="LoginUser">
+              <PropertyRef Name="UserRoleSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RoleOfUser_LoginUser">
+          <End Type="dqs_test_20170804Model.LoginUser" Role="LoginUser" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.RoleOfUser" Role="RoleOfUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LoginUser">
+              <PropertyRef Name="UserSID" />
+            </Principal>
+            <Dependent Role="RoleOfUser">
+              <PropertyRef Name="UserSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRoleDetail_UserRole">
+          <End Type="dqs_test_20170804Model.UserRole" Role="UserRole" Multiplicity="0..1" />
+          <End Type="dqs_test_20170804Model.UserRoleDetail" Role="UserRoleDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserRole">
+              <PropertyRef Name="UserRoleSID" />
+            </Principal>
+            <Dependent Role="UserRoleDetail">
+              <PropertyRef Name="UserRoleSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilePathToken" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PassWord" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IVANCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IVANName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IVANPass" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ModeSign" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dqs_test_20170804ModelStoreContainer" CdmEntityContainer="DataClassesDataContext">
+          <FunctionImportMapping FunctionImportName="Dongbo" FunctionName="dqs_test_20170804Model.Store.Dongbo" />
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="Deleleted" ColumnName="Deleleted" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.Client">
+              <MappingFragment StoreEntitySet="Client">
+                <ScalarProperty Name="UpdateBy" ColumnName="UpdateBy" />
+                <ScalarProperty Name="Updated" ColumnName="Updated" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountHolder" ColumnName="AccountHolder" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+                <ScalarProperty Name="Delegate" ColumnName="Delegate" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="TypeSendInvoice" ColumnName="TypeSendInvoice" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.Contract">
+              <MappingFragment StoreEntitySet="Contract">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="DateApproved" ColumnName="DateApproved" />
+                <ScalarProperty Name="BonusMonth" ColumnName="BonusMonth" />
+                <ScalarProperty Name="Month" ColumnName="Month" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="PriceId" ColumnName="PriceId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="TypePayment" ColumnName="TypePayment" />
+                <ScalarProperty Name="DatePayment" ColumnName="DatePayment" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentSigns">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.DocumentSign">
+              <MappingFragment StoreEntitySet="DocumentSign">
+                <ScalarProperty Name="MyselfSign" ColumnName="MyselfSign" />
+                <ScalarProperty Name="CurrentStep" ColumnName="CurrentStep" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentTypes">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.DocumentType">
+              <MappingFragment StoreEntitySet="DocumentType">
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Orders" ColumnName="Orders" />
+                <ScalarProperty Name="DocType" ColumnName="DocType" />
+                <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailActives">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.EmailActive">
+              <MappingFragment StoreEntitySet="EmailActive">
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="TypeEmail" ColumnName="TypeEmail" />
+                <ScalarProperty Name="SendtedDate" ColumnName="SendtedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ContentEmail" ColumnName="ContentEmail" />
+                <ScalarProperty Name="StatusSend" ColumnName="StatusSend" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailActiveFileAttaches">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.EmailActiveFileAttach">
+              <MappingFragment StoreEntitySet="EmailActiveFileAttach">
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FullPathFileAttach" ColumnName="FullPathFileAttach" />
+                <ScalarProperty Name="EmailActiveId" ColumnName="EmailActiveId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailServers">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.EmailServer">
+              <MappingFragment StoreEntitySet="EmailServer">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmailServer1" ColumnName="EmailServer" />
+                <ScalarProperty Name="Port" ColumnName="Port" />
+                <ScalarProperty Name="SMTPServer" ColumnName="SMTPServer" />
+                <ScalarProperty Name="MethodSendSSL" ColumnName="MethodSendSSL" />
+                <ScalarProperty Name="AutoSendEmail" ColumnName="AutoSendEmail" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="CreateAccount" ColumnName="CreateAccount" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="UsingHSM" ColumnName="UsingHSM" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeSigns">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.EmployeeSign">
+              <MappingFragment StoreEntitySet="EmployeeSign">
+                <ScalarProperty Name="OrderSign" ColumnName="OrderSign" />
+                <ScalarProperty Name="ThreadedSignDocumentId" ColumnName="ThreadedSignDocumentId" />
+                <ScalarProperty Name="DocumentSingId" ColumnName="DocumentSingId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeSignDetails">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.EmployeeSignDetail">
+              <MappingFragment StoreEntitySet="EmployeeSignDetail">
+                <ScalarProperty Name="OrderLink" ColumnName="OrderLink" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Scale" ColumnName="Scale" />
+                <ScalarProperty Name="CoordinateY" ColumnName="CoordinateY" />
+                <ScalarProperty Name="CoordinateX" ColumnName="CoordinateX" />
+                <ScalarProperty Name="Page" ColumnName="Page" />
+                <ScalarProperty Name="SignType" ColumnName="SignType" />
+                <ScalarProperty Name="FileSignId" ColumnName="FileSignId" />
+                <ScalarProperty Name="EmployeeSignId" ColumnName="EmployeeSignId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileSigns">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.FileSign">
+              <MappingFragment StoreEntitySet="FileSign">
+                <ScalarProperty Name="FileNameSave" ColumnName="FileNameSave" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Orders" ColumnName="Orders" />
+                <ScalarProperty Name="NumberPage" ColumnName="NumberPage" />
+                <ScalarProperty Name="FileConvert" ColumnName="FileConvert" />
+                <ScalarProperty Name="FileSize" ColumnName="FileSize" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="FileConvertType" ColumnName="FileConvertType" />
+                <ScalarProperty Name="FileSourceType" ColumnName="FileSourceType" />
+                <ScalarProperty Name="UserUpload" ColumnName="UserUpload" />
+                <ScalarProperty Name="DocumentSignId" ColumnName="DocumentSignId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginUsers">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.LoginUser">
+              <MappingFragment StoreEntitySet="LoginUser">
+                <ScalarProperty Name="EmployeeSignId" ColumnName="EmployeeSignId" />
+                <ScalarProperty Name="AccountDefault" ColumnName="AccountDefault" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="LastChangedPasswordTime" ColumnName="LastChangedPasswordTime" />
+                <ScalarProperty Name="LastAccessedTime" ColumnName="LastAccessedTime" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="CompanySID" ColumnName="CompanySID" />
+                <ScalarProperty Name="UserRoleSID" ColumnName="UserRoleSID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserSID" ColumnName="UserSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MyCompanies">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.MyCompany">
+              <MappingFragment StoreEntitySet="MyCompany">
+                <ScalarProperty Name="Expired" ColumnName="Expired" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="VendorToken" ColumnName="VendorToken" />
+                <ScalarProperty Name="PrivateKey" ColumnName="PrivateKey" />
+                <ScalarProperty Name="AutoSendEmail" ColumnName="AutoSendEmail" />
+                <ScalarProperty Name="EmailOfContract" ColumnName="EmailOfContract" />
+                <ScalarProperty Name="Level_Agencies" ColumnName="Level_Agencies" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Level_Customer" ColumnName="Level_Customer" />
+                <ScalarProperty Name="LogoFileName" ColumnName="LogoFileName" />
+                <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountHolder" ColumnName="AccountHolder" />
+                <ScalarProperty Name="BankAccount" ColumnName="BankAccount" />
+                <ScalarProperty Name="Delegate" ColumnName="Delegate" />
+                <ScalarProperty Name="PersonContact" ColumnName="PersonContact" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel1" ColumnName="Tel1" />
+                <ScalarProperty Name="AddressRegister" ColumnName="AddressRegister" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="License" ColumnName="License" />
+                <ScalarProperty Name="Careers" ColumnName="Careers" />
+                <ScalarProperty Name="Issued" ColumnName="Issued" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="IsurranceCode" ColumnName="IsurranceCode" />
+                <ScalarProperty Name="CompanyType" ColumnName="CompanyType" />
+                <ScalarProperty Name="CompanySID" ColumnName="CompanySID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleOfUsers">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.RoleOfUser">
+              <MappingFragment StoreEntitySet="RoleOfUser">
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="UserRoleDetailId" ColumnName="UserRoleDetailId" />
+                <ScalarProperty Name="UserSID" ColumnName="UserSID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SignOfUsers">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.SignOfUser">
+              <MappingFragment StoreEntitySet="SignOfUser">
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="ImageName" ColumnName="ImageName" />
+                <ScalarProperty Name="UseDefault" ColumnName="UseDefault" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="IsDraw" ColumnName="IsDraw" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThreadedSignDocuments">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.ThreadedSignDocument">
+              <MappingFragment StoreEntitySet="ThreadedSignDocument">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Adrress" ColumnName="Adrress" />
+                <ScalarProperty Name="IdNumber" ColumnName="IdNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="UserCreate" ColumnName="UserCreate" />
+                <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+                <ScalarProperty Name="Orders" ColumnName="Orders" />
+                <ScalarProperty Name="TaxCode" ColumnName="TaxCode" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="ReceptionFileCopy" ColumnName="ReceptionFileCopy" />
+                <ScalarProperty Name="ReceptionEmail" ColumnName="ReceptionEmail" />
+                <ScalarProperty Name="GroupType" ColumnName="GroupType" />
+                <ScalarProperty Name="DocumentTypeId" ColumnName="DocumentTypeId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoles">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.UserRole">
+              <MappingFragment StoreEntitySet="UserRole">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DefaultPage" ColumnName="DefaultPage" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Levels" ColumnName="Levels" />
+                <ScalarProperty Name="UserRoleSID" ColumnName="UserRoleSID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserRoleDetails">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.UserRoleDetail">
+              <MappingFragment StoreEntitySet="UserRoleDetail">
+                <ScalarProperty Name="Orders" ColumnName="Orders" />
+                <ScalarProperty Name="DetailFunction" ColumnName="DetailFunction" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="FunctionName" ColumnName="FunctionName" />
+                <ScalarProperty Name="UserRoleSID" ColumnName="UserRoleSID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemConfigs">
+            <EntityTypeMapping TypeName="dqs_test_20170804Model.SystemConfig">
+              <MappingFragment StoreEntitySet="SystemConfig">
+                <ScalarProperty Name="ModeSign" ColumnName="ModeSign" />
+                <ScalarProperty Name="IVANPass" ColumnName="IVANPass" />
+                <ScalarProperty Name="IVANName" ColumnName="IVANName" />
+                <ScalarProperty Name="IVANCode" ColumnName="IVANCode" />
+                <ScalarProperty Name="PassWord" ColumnName="PassWord" />
+                <ScalarProperty Name="FilePathToken" ColumnName="FilePathToken" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

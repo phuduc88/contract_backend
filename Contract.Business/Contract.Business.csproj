@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7C66E385-F5EC-4FBE-A470-CD468FB9594F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contract.Business</RootNamespace>
+    <AssemblyName>Contract.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\RuleCheckStaticCode\IFRS_Rules Check Static Code_C#.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\RuleCheckStaticCode\IFRS_Rules Check Static Code_C#.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\Account.cs" />
+    <Compile Include="BL\BaseBO.cs" />
+    <Compile Include="BL\DocumentTypeBO.cs" />
+    <Compile Include="BL\DocumentSignBO.cs" />
+    <Compile Include="BL\EmployeeSignDetailBO.cs" />
+    <Compile Include="BL\EmployeeSignBO.cs" />
+    <Compile Include="BL\Interface\IDocumentSignBO.cs" />
+    <Compile Include="BL\Interface\IEmployeeSignDetailBO.cs" />
+    <Compile Include="BL\Interface\IEmployeeSignBO.cs" />
+    <Compile Include="BL\ThreadedSignDocumentBO.cs" />
+    <Compile Include="BL\Interface\ISignOfUserBO.cs" />
+    <Compile Include="BL\SignOfUserBO.cs" />
+    <Compile Include="BL\Interface\IThreadedSignDocumentBO.cs" />
+    <Compile Include="BL\Interface\IDocumentTypeBO.cs" />
+    <Compile Include="BL\Interface\IFileSignBO.cs" />
+    <Compile Include="BL\Interface\IRoleOfUserBO.cs" />
+    <Compile Include="BL\FileSignBO.cs" />
+    <Compile Include="BL\SystemConfigBO.cs" />
+    <Compile Include="BL\EmailActiveBO.cs" />
+    <Compile Include="BL\Interface\ISystemConfigBO.cs" />
+    <Compile Include="BL\Interface\IEmailActiveBO.cs" />
+    <Compile Include="BL\Interface\IProductBO.cs" />
+    <Compile Include="BL\Email.cs" />
+    <Compile Include="BL\Interface\IEmployeeeBO.cs" />
+    <Compile Include="BL\EmployeersBO.cs" />
+    <Compile Include="BL\CityBO.cs" />
+    <Compile Include="BL\Interface\ICityBO.cs" />
+    <Compile Include="BL\Interface\IUserBO.cs" />
+    <Compile Include="BL\Permission.cs" />
+    <Compile Include="BL\RoleOfUserBO.cs" />
+    <Compile Include="BL\UserRoleBO.cs" />
+    <Compile Include="BL\Interface\IUserRoleBO.cs" />
+    <Compile Include="BL\DataValidation.cs" />
+    <Compile Include="BL\BOFactory.cs" />
+    <Compile Include="BL\Interface\IMyCompanyBO.cs" />
+    <Compile Include="BL\Interface\ILoginUserBO.cs" />
+    <Compile Include="BL\Interface\ISessionManagerBO.cs" />
+    <Compile Include="BL\Interface\IBOFactory.cs" />
+    <Compile Include="BL\LoginUserBO.cs" />
+    <Compile Include="BL\MyCompanyBO.cs" />
+    <Compile Include="BL\SessionManagerBO.cs" />
+    <Compile Include="BL\TransferData.cs" />
+    <Compile Include="Cache\CacheManagement.cs" />
+    <Compile Include="Cache\CategoryCache.cs" />
+    <Compile Include="Cache\ICacheClientExtensions.cs" />
+    <Compile Include="Cache\Interface\IRedisCache.cs" />
+    <Compile Include="Cache\RedisCache.cs" />
+    <Compile Include="Cache\UserSessionCache.cs" />
+    <Compile Include="Config\Print.cs" />
+    <Compile Include="Constants\Constants.cs" />
+    <Compile Include="Constants\Enums.cs" />
+    <Compile Include="DAO\EmployeeSignDetailRepository.cs" />
+    <Compile Include="DAO\DocumentSignRepository.cs" />
+    <Compile Include="DAO\EmployeeSignRepository.cs" />
+    <Compile Include="DAO\DocumentTypeRepository.cs" />
+    <Compile Include="DAO\FileSignRepository.cs" />
+    <Compile Include="DAO\Interface\IEmployeeSignRepository.cs" />
+    <Compile Include="DAO\Interface\IEmployeeSignDetailRepository.cs" />
+    <Compile Include="DAO\Interface\IDocumentSignRepository.cs" />
+    <Compile Include="DAO\SignOfUserRepository.cs" />
+    <Compile Include="DAO\ThreadedSignDocumentRepository.cs" />
+    <Compile Include="DAO\Interface\IImageSignOfUserRepository.cs" />
+    <Compile Include="DAO\Interface\IThreadedSignDocumentRepository.cs" />
+    <Compile Include="DAO\Interface\IFileSignRepository.cs" />
+    <Compile Include="DAO\Interface\IDocumentTypeRepository.cs" />
+    <Compile Include="DAO\SystemConfigRepository.cs" />
+    <Compile Include="DAO\Interface\ICityRepository.cs" />
+    <Compile Include="DAO\ConfigEmailServerRepository.cs" />
+    <Compile Include="DAO\EmailActiveFileAttachRepository.cs" />
+    <Compile Include="DAO\EmailActiveRepository.cs" />
+    <Compile Include="DAO\Interface\IConfigEmailServerRepository.cs" />
+    <Compile Include="DAO\Interface\IEmailActiveFileAttachRepository.cs" />
+    <Compile Include="DAO\Interface\IEmailActiveRepository.cs" />
+    <Compile Include="DAO\Interface\IEmployeersRepository.cs" />
+    <Compile Include="DAO\EmployeerRepository.cs" />
+    <Compile Include="DAO\CityRepository.cs" />
+    <Compile Include="DAO\DbExecuteSqlCommant.cs" />
+    <Compile Include="DAO\Interface\ISystemConfigRepository.cs" />
+    <Compile Include="DAO\Interface\IDbExecuteSqlCommant.cs" />
+    <Compile Include="DAO\Interface\IUserRoleDetailRepository.cs" />
+    <Compile Include="DAO\Interface\IRoleOfUserRepository.cs" />
+    <Compile Include="DAO\Interface\IMyCompanyRepository.cs" />
+    <Compile Include="DAO\RoleOfUserRepository.cs" />
+    <Compile Include="DAO\UserRoleDetailRepository.cs" />
+    <Compile Include="DAO\UserRoleRepository.cs" />
+    <Compile Include="DAO\DbTransactionManager.cs" />
+    <Compile Include="DAO\Interface\IUserRoleRepository.cs" />
+    <Compile Include="DAO\Interface\IDbTransactionManager.cs" />
+    <Compile Include="DAO\Interface\IRepository.cs" />
+    <Compile Include="DAO\Interface\IRepositoryFactory.cs" />
+    <Compile Include="DAO\Interface\ILoginUserRepository.cs" />
+    <Compile Include="DAO\MyCompanyRepository.cs" />
+    <Compile Include="DAO\LoginUserRepository.cs" />
+    <Compile Include="DAO\RepositoryFactory.cs" />
+    <Compile Include="DAO\GenericRepository.cs" />
+    <Compile Include="Email\EmailTemplate.cs" />
+    <Compile Include="Email\Interface\IEmail.cs" />
+    <Compile Include="Email\Interface\IProcessEmail.cs" />
+    <Compile Include="Email\ProcessEmail.cs" />
+    <Compile Include="Email\SendGmail.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\HttpResponseMessageExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="ExternalData\ApiResponse.cs" />
+    <Compile Include="ExternalData\ClientApiService.cs" />
+    <Compile Include="ExternalData\RestApiService.cs" />
+    <Compile Include="ExternalData\RestClient.cs" />
+    <Compile Include="FileProcess\Docx\BaseExportDocx.cs" />
+    <Compile Include="FileProcess\Docx\ClearSpaceInDocx.cs" />
+    <Compile Include="FileProcess\FileProcess.cs" />
+    <Compile Include="FileProcess\Interface\FileFactory.cs" />
+    <Compile Include="FileProcess\Excel\SpireXls.cs" />
+    <Compile Include="FileProcess\Pdf\ImageSignInfo.cs" />
+    <Compile Include="FileProcess\Pdf\PdfProcess.cs" />
+    <Compile Include="Helper\EmailViaSendGrid.cs" />
+    <Compile Include="ImportExcel\ImportExcel.cs" />
+    <Compile Include="Models\Account\SignOfUserInfo.cs" />
+    <Compile Include="Models\Account\AccountManagement.cs" />
+    <Compile Include="Models\Account\AccountInfo.cs" />
+    <Compile Include="Models\CompanyFile\ConpanyFileUploadInfo.cs" />
+    <Compile Include="Models\Company\ChangeCompanyInfo.cs" />
+    <Compile Include="Models\Company\CustomerOfCompany.cs" />
+    <Compile Include="Models\Company\TokenInfo.cs" />
+    <Compile Include="Models\ContractDetail\ConditionSearchContracts.cs" />
+    <Compile Include="Models\ContractDetail\ContractAccount.cs" />
+    <Compile Include="Models\ContractDetail\ContractDetailInfo.cs" />
+    <Compile Include="Models\Company\CompanyAccount.cs" />
+    <Compile Include="Models\Account\MaxUser.cs" />
+    <Compile Include="Models\Account\ChangePassword.cs" />
+    <Compile Include="Models\Account\PasswordInfo.cs" />
+    <Compile Include="Models\Account\ResetPassword.cs" />
+    <Compile Include="Models\Account\AccountDetail.cs" />
+    <Compile Include="Models\ContractDetail\ContractDownload.cs" />
+    <Compile Include="Models\ContractDetail\ContractInfo.cs" />
+    <Compile Include="Models\ContractDetail\ContractMaster.cs" />
+    <Compile Include="Models\ContractDetail\ContractOfCompany.cs" />
+    <Compile Include="Models\ContractDetail\DeclarationContractInfo.cs" />
+    <Compile Include="Models\Customer\ConditionSearchCustomer.cs" />
+    <Compile Include="Models\Customer\CustomerInfo.cs" />
+    <Compile Include="Models\Customer\CustomerManagementInfo.cs" />
+    <Compile Include="Models\Customer\ExternalCustomer.cs" />
+    <Compile Include="Models\DocumentSign\ConditionSearchDocument.cs" />
+    <Compile Include="Models\DocumentSign\EmployeeSignDetailInfo.cs" />
+    <Compile Include="Models\DocumentSign\EmployeeSignInfo.cs" />
+    <Compile Include="Models\DocumentSign\DocumentSignInfo.cs" />
+    <Compile Include="Models\DocumentSign\SignDocumentInfo.cs" />
+    <Compile Include="Models\Email\ConditionSearchEmailActive.cs" />
+    <Compile Include="Models\Email\Email.cs" />
+    <Compile Include="Models\Email\EmailActiveInfo.cs" />
+    <Compile Include="Models\Email\EmailConfig.cs" />
+    <Compile Include="Models\Email\EmailServerInfo.cs" />
+    <Compile Include="Models\Email\FileInfo.cs" />
+    <Compile Include="Models\Email\ReceiverAccountActiveInfo.cs" />
+    <Compile Include="Models\Email\ReceiverInfo.cs" />
+    <Compile Include="Models\Email\ReceiverNotification.cs" />
+    <Compile Include="Models\Employee\EmployeeSearch.cs" />
+    <Compile Include="Models\Employee\ConditionSearchEmployeer.cs" />
+    <Compile Include="Models\Employee\EmployeeInfomation.cs" />
+    <Compile Include="Models\Employee\EmployeeStatus.cs" />
+    <Compile Include="Models\Employee\GroupInfo.cs" />
+    <Compile Include="Models\SignFileMaster\SignFileSignInfo.cs" />
+    <Compile Include="Models\SignFileMaster\DocumentTypeInfo.cs" />
+    <Compile Include="Models\SignFileMaster\ThreadedSignDocumentInfo.cs" />
+    <Compile Include="Models\SignFileMaster\FileSignInfo.cs" />
+    <Compile Include="Models\File\DataReportBase.cs" />
+    <Compile Include="Models\File\DataSourceExport.cs" />
+    <Compile Include="Models\File\FileExport.cs" />
+    <Compile Include="Models\File\interface\IExportExcel.cs" />
+    <Compile Include="Models\MasterData\UploadEmployee.cs" />
+    <Compile Include="Models\Employee\EmployeeInfo.cs" />
+    <Compile Include="Models\MasterData\CityInfo.cs" />
+    <Compile Include="Models\MasterData\ApprovedRowError.cs" />
+    <Compile Include="Models\MasterData\ResultApproved.cs" />
+    <Compile Include="Models\Product\ProductInfo.cs" />
+    <Compile Include="Models\Role\FunctionInfo.cs" />
+    <Compile Include="Models\Company\MyCompanyInfo.cs" />
+    <Compile Include="Models\Company\ConditionSearchCompany.cs" />
+    <Compile Include="Models\File\FileInfomation.cs" />
+    <Compile Include="Models\File\FileUploadInfo.cs" />
+    <Compile Include="Models\MasterData\FileImport.cs" />
+    <Compile Include="Models\MasterData\ImportConfig.cs" />
+    <Compile Include="Models\MasterData\ImportResult.cs" />
+    <Compile Include="Models\MasterData\ImportRowError.cs" />
+    <Compile Include="Models\MasterData\ResultImport.cs" />
+    <Compile Include="Models\Company\CompanyInfo.cs" />
+    <Compile Include="Models\Company\MasterCompanyInfo.cs" />
+    <Compile Include="Models\Company\UpdateloadFileConfig.cs" />
+    <Compile Include="Models\GlobalConfig\EmailConfig.cs" />
+    <Compile Include="Models\Message\ApiResult.cs" />
+    <Compile Include="Models\Role\RoleDetail.cs" />
+    <Compile Include="Models\SystemConfig\SystemConfigInfo.cs" />
+    <Compile Include="Models\User\ConditionSearchUser.cs" />
+    <Compile Include="Models\User\LoginInfo.cs" />
+    <Compile Include="Models\User\Role.cs" />
+    <Compile Include="Models\GlobalConfig\SessionConfig.cs" />
+    <Compile Include="Models\User\UserSessionInfo.cs" />
+    <Compile Include="Models\ValidatorInvoice\ValidatorResult.cs" />
+    <Compile Include="PDF\InvoiceFile.cs" />
+    <Compile Include="PDF\ProcessPdf.cs" />
+    <Compile Include="Utils\DateConverter.cs" />
+    <Compile Include="Utils\JsonBoolConverter.cs" />
+    <Compile Include="Utils\JsonDateConverterStringFull.cs" />
+    <Compile Include="Utils\JsonDateConverterStringShort.cs" />
+    <Compile Include="Utils\JsonDateConverterString.cs" />
+    <Compile Include="Utils\JsonDateConverter.cs" />
+    <Compile Include="Utils\JsonEnumConverter.cs" />
+    <Compile Include="Utils\JsonIntConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.3\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HiQPdf.Free">
+      <HintPath>..\DLL\HiQPdf.Free.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.12\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>DLL\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenXmlPowerTools, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenXmlPowerTools.4.5.3.2\lib\net45\OpenXmlPowerTools.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Select.HtmlToPdf">
+      <HintPath>..\DLL\Select.HtmlToPdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Barcode, Version=3.2.0.14040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.Barcode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Common, Version=2.2.16.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.DataExport, Version=4.1.9.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.DataExport.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.DataExport.ResourceMgr, Version=2.1.0.19040, Culture=neutral, PublicKeyToken=4bc1500157862925, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.DataExport.ResourceMgr.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Doc, Version=7.2.8.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.Doc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.DocViewer.Forms, Version=4.1.10.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.DocViewer.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.License, Version=1.3.7.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.License.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.2.17.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.Pdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Forms, Version=4.2.7.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.PdfViewer.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.Presentation, Version=4.2.6.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.Presentation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Spire.XLS, Version=9.2.16.19040, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\FreeSpire.Office.4.3.1\lib\net40\Spire.XLS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis.Extensions.Core">
+      <HintPath>..\packages\StackExchange.Redis.Extensions.Core.1.4.0\lib\net45\StackExchange.Redis.Extensions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis.Extensions.Newtonsoft">
+      <HintPath>..\packages\StackExchange.Redis.Extensions.Newtonsoft.1.4.0\lib\net45\StackExchange.Redis.Extensions.Newtonsoft.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management.Automation, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Management.Automation.dll.10.0.10586.0\lib\net40\System.Management.Automation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Contract.Common\Contract.Common.csproj">
+      <Project>{70f546f0-8beb-4d65-b28b-d3dd24b7f500}</Project>
+      <Name>Contract.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract.Data\Contract.Data.csproj">
+      <Project>{a41eee8a-9250-4991-b51a-16bebf4eb0d3}</Project>
+      <Name>Contract.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A41EEE8A-9250-4991-B51A-16BEBF4EB0D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contract.Data</RootNamespace>
+    <AssemblyName>Contract.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\RuleCheckStaticCode\IFRS_Rules Check Static Code_C#.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>..\RuleCheckStaticCode\IFRS_Rules Check Static Code_C#.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="DBAccessor\DataClasses.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataClasses.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DBAccessor\DataClasses.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataClasses.edmx</DependentUpon>
+      <LastGenOutput>DataClasses.Context.cs</LastGenOutput>
+    </None>
+    <None Include="DBAccessor\DataClasses.edmx.diagram">
+      <DependentUpon>DataClasses.edmx</DependentUpon>
+    </None>
+    <None Include="DBAccessor\DataClasses.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataClasses.edmx</DependentUpon>
+      <LastGenOutput>DataClasses.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBAccessor\City.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\Client.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\Contract.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DataClasses.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DataClasses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DataClasses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DataClassesDataContext.cs" />
+    <Compile Include="DBAccessor\DbContextManager.cs" />
+    <Compile Include="DBAccessor\Department.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DocumentSign.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\DocumentType.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\EmailActive.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\EmailActiveFileAttach.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\EmailServer.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\Employee.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\EmployeeSign.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\EmployeeSignDetail.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\FileSign.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\IDbContext.cs" />
+    <Compile Include="DBAccessor\LoginUser.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\MyCompany.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\RoleOfUser.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\SignOfUser.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\SystemConfig.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\ThreadedSignDocument.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\UserRole.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBAccessor\UserRoleDetail.cs">
+      <DependentUpon>DataClasses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\XMLConvertAttribute.cs" />
+    <Compile Include="Utils\DataConvertAttribute.cs" />
+    <Compile Include="Utils\DataObjectConverter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DBAccessor\PartialClasses\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
